@@ -1,103 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quasar Labs Login</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-    }
-    body {
-      display: flex;
-      justify-content: center; 
-      align-items: flex-start; 
-      height: 100vh;
-      padding-top: 180px;       
-      background: black;
-      font-family: 'Orbitron', sans-serif;
-      color: white;
-    }
-    video {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
-    .content {
-      position: relative;
-      z-index: 1;
-      max-width: 400px;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 8px;
-    }
-    .content h1 {
-      margin-top: 0;
-      text-align: center;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-    label {
-      margin: 10px 0 5px;
-    }
-    input {
-      padding: 8px;
-      border: none;
-      border-radius: 4px;
-      margin-bottom: 15px;
-    }
-    button {
-      padding: 10px;
-      background-color: #1e90ff;
-      border: none;
-      border-radius: 4px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #0f78d1;
-    }
-  </style>
-</head>
-<body>
-  <video autoplay muted loop>
-    <source src="https://res.cloudinary.com/dboo1ybht/video/upload/v1747917468/Home_imvdsm.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quasar Labs Login</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Martian+Mono:wght@100..800&family=Orbitron:wght@400..900&display=swap" 
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: "Orbitron", sans-serif;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+      }
 
-  <div class="content">
-    <h1>Welcome to Quasar Labs</h1>
-    <form>
-      <label>Commlink ID:</label>
-      <input type="email" placeholder="Input Email" name="email" id="email" required />
-      
-      <label>Security Clearance Code:</label>
-      <input
-        type="password"
-        inputmode="numeric"
-        pattern="\d{6}"
-        maxlength="6"
-        placeholder="Enter Security Code"
-        name="passcode"
-        id="passcode"
-        required
-        title="Access Denied: SCC must be exactly 6 numeric digits to decrypt mainframe frequency."
+      video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1;
+      }
+
+      .overlay {
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 100px;
+        padding: 40px;
+        width: 1535px;
+        height: 835px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h2 {
+        font-size: 2rem;
+        letter-spacing: 1px;
+        text-align: center;
+        font-weight: 600;
+        margin-top: 0;
+        padding-bottom: 20px;
+      }
+
+      .form-group {
+        width: 350px;
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-weight: 500;
+        font-family: inherit;
+        letter-spacing: 0.5px;
+        margin-bottom: 5px;
+      }
+
+      input[type="email"],
+      input[type="password"] {
+        color: rgb(116, 0, 67);
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        box-sizing: border-box;
+        font-family: inherit;
+        font-size: 16px;
+      }
+
+      input[type="password"] {
+        font-size: 16px;
+        font-weight: bolder; 
+        font-family: Martian Mono, monospace;
+      }
+
+      input:-webkit-autofill {
+        -webkit-text-fill-color: rgb(116, 0, 67);
+      }
+
+      input[type="submit"] {
+        background: linear-gradient(90deg, #d538f5bd, #6a0dadaf);
+        border: none;
+        font-family: inherit;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      input[type="submit"]:hover {
+        background: linear-gradient(90deg, #0f77d1c9, #6a0dadc7);
+        transform: scale(1.05);
+      }
+
+      input::placeholder {
+        font-size: 16px;
+        font-weight: normal;
+        font-family: orbitron, sans-serif;
+        color: rgb(194, 171, 184);
+      }
+    </style>
+  </head>
+
+  <body>
+    <video autoplay muted loop>
+      <source
+        src="https://res.cloudinary.com/dboo1ybht/video/upload/v1747923404/Home_3_dcmfkw.mp4"
+        type="video/mp4"
       />
+      Your browser does not support the video tag.
+    </video>
 
-      <button type="submit">Enter Mainframe</button>
+    <form action="https://abigail3333.github.io/Quasar-Labs-Mainframe/" method="get">
+      <div class="overlay">
+        <h2>Welcome to Quasar Labs</h2>
+
+        <div class="form-group">
+          <label for="email">Commlink ID:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Input Email"
+            required
+            autofocus
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="passcode">Security Clearance Code:</label>
+          <input
+            type="password"
+            id="passcode"
+            name="passcode"
+            inputmode="numeric"
+            pattern="\d{6}"
+            maxlength="6"
+            placeholder="Enter Security Code"
+            required
+            title="Access Denied: SCC must be exactly 6 numeric digits to decrypt mainframe frequency."
+          />
+        </div>
+
+        <div class="form-group">
+          <input type="submit" value="Enter Mainframe" />
+        </div>
+      </div>
     </form>
-  </div>
-</body>
+  </body>
 </html>
