@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quasar Labs Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    body {
+      display: flex;
+      justify-content: center; 
+      align-items: flex-start; 
+      height: 100vh;
+      padding-top: 180px;       
+      background: black;
+      font-family: 'Orbitron', sans-serif;
+      color: white;
+    }
+    video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 400px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .content h1 {
+      margin-top: 0;
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin: 10px 0 5px;
+    }
+    input {
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 10px;
+      background-color: #1e90ff;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0f78d1;
+    }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop>
+    <source src="https://res.cloudinary.com/dboo1ybht/video/upload/v1747917468/Home_imvdsm.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="content">
+    <h1>Welcome to Quasar Labs</h1>
+    <form>
+      <label>Commlink ID:</label>
+      <input type="email" placeholder="Input Email" name="email" id="email" required />
+      
+      <label>Security Clearance Code:</label>
+      <input
+        type="password"
+        inputmode="numeric"
+        pattern="\d{6}"
+        maxlength="6"
+        placeholder="Enter Security Code"
+        name="passcode"
+        id="passcode"
+        required
+        title="Access Denied: SCC must be exactly 6 numeric digits to decrypt mainframe frequency."
+      />
+
+      <button type="submit">Enter Mainframe</button>
+    </form>
+  </div>
+</body>
+</html>
